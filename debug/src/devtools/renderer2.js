@@ -376,8 +376,6 @@ export function flushInitialEvents(hook, state) {
 	// TODO: When operations are already queued, we should just flush the queus
 	hook.getFiberRoots(state.rendererId).forEach(root => {
 		state.currentRootId = getVNodeId(root);
-
-		console.log(state)
 		flushPendingEvents(hook, state);
 	});
 }

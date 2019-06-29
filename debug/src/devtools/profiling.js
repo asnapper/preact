@@ -59,7 +59,6 @@ export function getProfilingData(state, rendererId) {
 		});
 	});
 
-	console.log(data);
 	return {
 		rendererID: rendererId,
 		dataForRoots: data
