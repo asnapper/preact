@@ -16,7 +16,6 @@ import PeopleBrowser from './people';
 import StyledComp from './styled-components';
 import { initDevTools } from 'preact/debug/src/devtools';
 import { initDebug } from 'preact/debug/src/debug';
-import { useState, useEffect } from 'preact/hooks';
 import DevtoolsDemo from './devtools';
 import SuspenseDemo from './suspense';
 import Redux from './redux';
@@ -54,7 +53,7 @@ class DevtoolsWarning extends Component {
 	}
 }
 
-class AppF extends Component {
+class App extends Component {
 	render({ url }) {
 		return (
 			<div class="app">
@@ -113,19 +112,6 @@ class AppF extends Component {
 	}
 }
 
-// function Foo() {
-// 	return <Bob />;
-// }
-
-// function Bar() {
-// 	return <Bob />
-// }
-
-// let i = 0;
-// function Bob() {
-// 	return <div>bob {++i}</div>
-// }
-
 function EmptyFragment() {
 	return <Fragment />;
 }
@@ -138,58 +124,4 @@ installLogger(
 	String(localStorage.CONSOLE)==='true' || location.href.match(/console/)
 );
 
-// function App3() {
-// 	return <h1>Hello World</h1>;
-// }
-
-// function FakeRouter(props) {
-// 	return props.active ? props.children[0] : props.children[1];
-// }
-
-// function App2() {
-// 	let [v, update] = useState(true);
-// 	useEffect(() => setTimeout(() => {
-// 		console.log("update")
-// 		update(false)}, 4000), []);
-
-//   return (
-// 			<FakeRouter active={v}>
-// 				<Foo/>
-// 				<Bar />
-// 			</FakeRouter>
-//   );
-// }
-
-
-function Foo() {
-  return <Bob />;
-}
-
-function Bar() {
-  return <Bob />;
-}
-
-let i = 0;
-function Bob() {
-  return <div>bob {++i}</div>;
-}
-
-function FakeRouter(props) {
-  return props.active ? props.children[0] : props.children[1];
-}
-
-function App() {
-  let [v, setValue] = useState(true);
-  let update = () => setValue(!v);
-  // useEffect(() => {
-  //   setTimeout(update, 4000);
-  // });
-
-  return (
-    <FakeRouter active={v}>
-      <Foo />
-      <Bar />
-    </FakeRouter>
-  );
-}
-render(<AppF />, document.body);
+render(<App />, document.body);
